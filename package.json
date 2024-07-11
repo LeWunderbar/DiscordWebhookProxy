@@ -3,7 +3,7 @@
   "main": "main.js",
   "scripts": {
       "prestart": "npm install",
-      "start": "node ./main"
+      "start": "node ./main.js"
   },
 
   "dependencies": {
