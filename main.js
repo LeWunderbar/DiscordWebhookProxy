@@ -1,0 +1,24 @@
+const express = require('express');
+const axios = require('axios');
+
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+
+app.post('/api/webhooks/:webhookId/:webhookToken', async (req, res) => {
+  const { webhookId, webhookToken } = req.params;
+  const discordWebhookUrl = `https://discord.com/api/webhooks/${webhookId}/${webhookToken}`;
+
+  try {
+    const response = await axios.post(discordWebhookUrl, req.body);
+    res.status(response.status).json(response.data);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Proxy server listening at http://localhost:${port}`);
+});
