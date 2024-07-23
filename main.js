@@ -19,6 +19,7 @@ app.post('/api/webhooks/:webhookId/:webhookToken', async (req, res) => {
   }
 });
 
+// Status
 app.get('/status', (req, res) => {
   res.send('<html><body><h1>Up and Healthy</h1></body></html>');
 });
