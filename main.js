@@ -4,6 +4,10 @@ const axios = require('axios');
 const app = express();
 const port = 3000;
 
+app.get('/', (req, res) => {
+  res.send('<html><body><h1>Discord Webhook Proxy Server | Made by M23__ on discord</h1></body></html>');
+});
+
 app.use(express.json());
 
 app.post('/api/webhooks/:webhookId/:webhookToken', async (req, res) => {
