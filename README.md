@@ -1,1 +1,1 @@
-Simple Discord Webhook Proxy Used for ROBLOX servers.
+Simple Discord Webhook Proxy.
