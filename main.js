@@ -4,13 +4,15 @@ const axios = require('axios');
 const app = express();
 const port = 3000;
 
+app.set('trust proxy', true);
+
 app.use((req, res, next) => {
 	const time = new Date().toISOString();
-	const ip = req.ip || req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+	const ip = req.headers['x-forwarded-for'] || req.ip || req.connection.remoteAddress;
 	console.log(`[${time}] Request from IP: ${ip}`);
 	next();
 });
-
+  
 app.use(express.json());
 
 app.get('/', (req, res) => {
