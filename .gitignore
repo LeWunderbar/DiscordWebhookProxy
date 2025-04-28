@@ -4,3 +4,5 @@ Storage/
 .envDev
 .envProd
 .env
+package-lock.json
+package.json
