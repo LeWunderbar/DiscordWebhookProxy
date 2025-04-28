@@ -11,10 +11,12 @@ const port = process.env.PORT || 3000;
 // --- CONFIGURATION ---
 const AUTHORIZED_KEYS = (process.env.AUTHORIZED_KEYS || '').split(',').map(key => key.trim());
 
+console.log(AUTHORIZED_KEYS)
+
 app.use(express.json({ limit: '10kb' }));
 
 // Trust proxy (for Cloudflare or load balancers)
-app.set('trust proxy', true);
+app.set('trust proxy', 1);
 
 // Rate limiter
 const limiter = rateLimit({
